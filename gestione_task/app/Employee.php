@@ -14,3 +14,6 @@ class Employee extends Model
       return $this -> hasMany(Task::class);
     }
 }
+
+// Post viene utilizzato per indicare la tabella che è "many"
+//
