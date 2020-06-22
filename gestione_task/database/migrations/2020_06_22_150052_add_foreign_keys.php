@@ -41,8 +41,7 @@ class AddForeignKeys extends Migration
       Schema::table('tasks', function (Blueprint $table) {
         // si aggiunge dropForeign che è una funzione che elimina la forein key e poi il nome che abbiamo assegnato precedentemente category.
         $table -> dropForeign('category');
-
-      )};
+      });
     }
 }
   // dopo aver fatto tutto si da un: php artisan migrate:fresh
