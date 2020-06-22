@@ -1,6 +1,6 @@
 <?php
 
-//  una categoria (impiegato) -> tanti post (mansioni)
+// MANY
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -22,13 +22,11 @@ class CreateTasksTable extends Migration
             $table ->mediumText('description');
             $table ->date('deadline');
             // nella categoria many abbiamo bisogno della chiave esterna. in questo caso ci sono due categorie impiegati e compiti. one to many. quindi in questa categoria compiti va la ta foreign key
-            // per collegare due tabelle con una foreign keys abbiamo bisogno di avere un dato che le correli (che hanno in comune). potrebbe essere ad esempio l'id.
+            // per collegare due tabelle con una foreign keys abbiamo bisogno di un dato che le correli (che hanno in comune). potrebbe essere ad esempio l'id.
             // Abbiamo tecnicamente bisogno di un dato che sia type: bigint e che abbia un attributo UNSIGNED. Motivo per il quale:
+
+            $table -> bigInteger('employee_id') -> unsigned() -> index();
             // l'index ci aiuta nelle ricerche e si aggiunge per velocizzare il lavoro che fa laravel
-            $table -> bigInteger('task_id') -> unsigned() -> index();
-            // si crea poi una terza migration che servirà per buttare giù il database e/o modificarlo per bene. Questo viene fatto perchè se si prova a cancellare il database così com'è col fatto che d'ora in poi saranno relazionati i due database, risulterà impossibile cancellare per via della presenza della foreign key. Essa gestisce solo le chiavi esterne, le mette su e le elimina, ha solo questa funzione.
-
-
 
             $table->timestamps();
         });

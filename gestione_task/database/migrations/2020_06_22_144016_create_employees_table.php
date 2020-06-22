@@ -1,6 +1,6 @@
 <?php
 
-// un post (mansione) -> una categoria (impiegato)
+//  ONE
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

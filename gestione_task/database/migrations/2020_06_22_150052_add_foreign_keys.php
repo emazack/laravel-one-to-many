@@ -20,11 +20,11 @@ class AddForeignKeys extends Migration
         // al posto di create scriviamo table e lo si va a rifereire:: a tasks che sarebbe la colonna "many". in qusto modo stiamo modificando una tabella e non creando
         Schema::table('tasks', function (Blueprint $table) {
           // qui stiamo creando la table che abbiamo scritto nell'altra migration (la forein key). Quindi gli diciamo a quale lavore ci stiamo riferendo "task_id". Il 'category' è un nome che stiamo dando alla key che ci servirà.
-          $table -> foreign('task_id', 'category')
+          $table -> foreign('employee_id', 'category')
             // poi dobbiamo dire che ci stiamo riferendo al suo valore id task
-            -> reference('id')
-            // poi a quale migration ci stiamo riferendo
-            -> on('tasks');
+            -> references('id')
+            // poi a quale migration ci stiamo riferendo (l'altra tabella)
+            -> on('employees');
       });
     }
 
