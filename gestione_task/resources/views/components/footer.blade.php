@@ -1,5 +1,5 @@
-<p>
+<h1>
 
   FOOTER Employee and tasks
 
-</p>
+</h1>
