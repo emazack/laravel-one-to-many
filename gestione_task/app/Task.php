@@ -1,5 +1,7 @@
 <?php
 
+// posts - MANY
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

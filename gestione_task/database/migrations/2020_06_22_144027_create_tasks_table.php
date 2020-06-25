@@ -1,6 +1,6 @@
 <?php
 
-// MANY
+// MANY - POST
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,8 +21,8 @@ class CreateTasksTable extends Migration
             $table ->string('name');
             $table ->mediumText('description');
             $table ->date('deadline');
-            // nella categoria many abbiamo bisogno della chiave esterna. in questo caso ci sono due categorie impiegati e compiti. one to many. quindi in questa categoria compiti va la ta foreign key
-            // per collegare due tabelle con una foreign keys abbiamo bisogno di un dato che le correli (che hanno in comune). potrebbe essere ad esempio l'id.
+            // nella categoria many abbiamo bisogno della chiave esterna. in questo caso ci sono due categorie: employees e tasks. one to many. quindi in questa categoria compiti (MANY) va la foreign key
+            // per collegare due tabelle con una foreign keys abbiamo bisogno di un dato che le correli. potrebbe essere ad esempio l'id. Infatti quello che facciamo è correlare l'id della tabella employees con la ferign key di questa tabella (la task)
             // Abbiamo tecnicamente bisogno di un dato che sia type: bigint e che abbia un attributo UNSIGNED. Motivo per il quale:
 
             $table -> bigInteger('employee_id') -> unsigned() -> index();

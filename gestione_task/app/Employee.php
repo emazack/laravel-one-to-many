@@ -1,5 +1,7 @@
 <?php
 
+// category - ONE
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
