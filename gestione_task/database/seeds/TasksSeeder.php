@@ -24,8 +24,13 @@ class TasksSeeder extends Seeder
                   -> make()
                   //
                   -> each(function($task) {
+                    // in questo caso stiamo dicendo: prendi una variabile e a questa variabile assegna un Employee. Questo Employee viene preso dalla tabella Employee, il primo di una lista random (che  semplicemente tradotto significa che viene preso un valore a caso)
                     $employee = Employee::inRandomOrder() -> first();
-
+                    // una volta preso il valore employee vado ad associare il $task definito prima all'employee
+                    // employee viene dal model
+                    $task -> employee() -> associate($employee);
+                    // poi si salva il tutto perchè siamo in make(), bisogna salvare per immettere nel database
+                    $task -> save();
       });
     }
 }
